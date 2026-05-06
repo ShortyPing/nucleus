@@ -1,0 +1,23 @@
+[package]
+name = "nucleus-cli"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+clap = { version = "4.6.1", features = ["derive"] }
+anyhow = "1.0.102"
+tracing = "0.1.44"
+tracing-subscriber = { version = "0.3.23", features = ["env-filter"] }
+rust-embed = { version = "8.11.0" }
+dialoguer = "0.12.0"
+colored = "3.1.1"
+serde = { version = "1.0.228", features = ["derive"] }
+toml = "1.1.2+spec-1.1.0"
+axum = "0.8.9"
+tokio = { version = "1.52.2", features = ["full"] }
+hyper = { version = "1", features = ["full"] }
+hyper-util = { version = "0.1", features = ["full"] }
+tower-http = { version = "0.6.9", features = ["set-header"] }
+tokio-tungstenite = "0.29.0"
+sha1 = "0.10.6"
+base64 = "0.22.1"

@@ -1,0 +1,33 @@
+# Nucleus CMS — Configuration
+# Documentation: TODO
+
+[site]
+# Display name of your site, visible in the admin panel
+name = "{{name}}"
+
+[admin]
+# Path where the admin panel is served
+# Default: /nucleus — change only if it conflicts with your frontend routes
+path = "/nucleus"
+
+[build]
+# Command to build your frontend project
+command = "npm run build"
+# Build output directory, relative to the project root
+out_dir = "frontend/dist"
+
+[serve]
+# Port for both the frontend and admin panel
+port = 3000
+
+[tls]
+# Enable HTTPS
+enabled = false
+# Certificate strategy: "letsencrypt" | "file"
+strategy = "letsencrypt"
+# Domain for Let's Encrypt certificate (required if strategy is "letsencrypt")
+domain = "yoursite.com"
+# Certificate file path (required if strategy is "file")
+certificate_file = "cert.pem"
+# Private key file path (required if strategy is "file")
+private_key_file = "cert.key"

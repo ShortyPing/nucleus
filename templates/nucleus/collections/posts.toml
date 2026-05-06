@@ -1,0 +1,66 @@
+# The collection block defines the content type.
+# The filename (e.g. posts.toml) determines the collection's API identifier and content directory.
+[collection]
+# Display name shown in the admin panel sidebar
+label = "Posts"
+# Optional description shown in the admin panel
+description = "Blog posts"
+
+# Fields define the structure of each entry in this collection.
+# Each field is defined as [field.<identifier>] where the identifier
+# is used as the key in the content file and the TypeScript SDK.
+#
+# Available field types:
+#   text      — Single line text input
+#   richtext  — Full rich text editor, stored as Markdown
+#   slug      — URL-safe identifier, optionally auto-generated from another field
+#   date      — Date picker (YYYY-MM-DD)
+#   datetime  — Date and time picker (ISO 8601)
+#   number    — Numeric input
+#   boolean   — Toggle
+#   select    — Dropdown, requires an options array
+#   tags      — Free-form string array
+#   image     — Media upload, stored in content/media/
+#   relation  — Reference to an entry in another collection
+#   user      — Reference to a Nucleus admin user
+
+[field.title]
+# Display label shown in the admin panel entry editor
+label = "Title"
+# Field type — determines the input rendered in the admin panel
+type = "text"
+# Whether the field must be filled before an entry can be saved
+required = true
+
+[field.slug]
+label = "Slug"
+# The slug type enforces URL-safe characters and uniqueness within the collection
+type = "slug"
+# Automatically generates the slug from another field's value.
+# The editor can still manually override the generated value.
+from = "title"
+
+[field.body]
+label = "Body"
+# richtext renders a full editor in the admin panel and stores content as Markdown.
+# The TypeScript SDK returns this field as MD.
+type = "richtext"
+required = true
+
+[field.created_at]
+label = "Created at"
+type = "datetime"
+# Populates the field automatically when a new entry is created.
+# Accepts "now" for the current timestamp.
+default = "now"
+# Prevents editors from modifying this field in the admin panel
+editable = false
+
+[field.created_by]
+label = "Created by"
+# The user type stores a reference to a Nucleus admin user.
+# Resolved automatically to the full user object by the TypeScript SDK.
+type = "user"
+# Populates the field with the currently logged-in admin user on entry creation
+default = "current"
+editable = false
